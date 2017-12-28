@@ -1,6 +1,7 @@
 package com.example.zxl.guidepage.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,8 +10,8 @@ import com.example.zxl.guidepage.R;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 
-public class GuideActivity extends Activity {
-    private static final String TAG = GuideActivity.class.getSimpleName();
+public class Guide0Activity extends Activity {
+    private static final String TAG = Guide0Activity.class.getSimpleName();
     private BGABanner mBackgroundBanner;
     private BGABanner mForegroundBanner;
 
@@ -39,7 +40,7 @@ public class GuideActivity extends Activity {
         mForegroundBanner.setEnterSkipViewIdAndDelegate(R.id.btn_guide_enter, R.id.tv_guide_skip, new BGABanner.GuideDelegate() {
             @Override
             public void onClickEnterOrSkip() {
-                startActivity(new Intent(GuideActivity.this, MainActivity.class));
+                startActivity(new Intent(Guide0Activity.this, MainActivity.class));
                 finish();
             }
         });
@@ -58,5 +59,10 @@ public class GuideActivity extends Activity {
 
         // 如果开发者的引导页主题是透明的，需要在界面可见时给背景 Banner 设置一个白色背景，避免滑动过程中两个 Banner 都设置透明度后能看到 Launcher
         mBackgroundBanner.setBackgroundResource(android.R.color.white);
+    }
+
+    public static void startAction(Context context){
+        Intent intent=new Intent(context,Guide0Activity.class);
+        context.startActivity(intent);
     }
 }
